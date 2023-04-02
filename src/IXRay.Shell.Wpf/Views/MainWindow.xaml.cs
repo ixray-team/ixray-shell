@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace IXRay.Shell.Wpf;
+namespace IXRay.Shell.Wpf.Views;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
