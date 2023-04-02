@@ -13,7 +13,7 @@
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -23,13 +23,26 @@
         <Menu Grid.Row="0">
             <MenuItem Header="File">
                 <MenuItem Header="Exit"
-                          InputGestureText="Alt+F4" />
+                          InputGestureText="Alt+F4"
+                          Command="{Binding Path=ExitCommand}" />
+            </MenuItem>
+
+            <MenuItem Header="View">
+                <MenuItem Header="Common mode"
+                          Command="{Binding Path=SwitchCommonCommand}" />
+                <MenuItem Header="Developer mode"
+                          Command="{Binding Path=SwitchDeveloperCommand}" />
+                <MenuItem Header="Modmaker mode"
+                          Command="{Binding Path=SwitchModmakerCommand}" />
             </MenuItem>
         </Menu>
 
         <ScrollViewer Grid.Row="1"
                       HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <ItemsControl ItemsSource="{Binding Path=ContentCollection}" />
+            </Grid>
         </ScrollViewer>
     </Grid>
 </Window>
