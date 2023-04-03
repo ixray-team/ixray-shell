@@ -55,7 +55,7 @@
                             Grid.Column="2"
                             Grid.Row="0"
                             Style="{StaticResource SpecityButtonStyle}"
-                            Command="{Binding}" />
+                            Command="{Binding SpecityStcopEnginePathCommand}" />
 
                     <Label Content="Path to assets:"
                            Grid.Column="0"
@@ -69,11 +69,12 @@
                             Grid.Column="2"
                             Grid.Row="1"
                             Style="{StaticResource SpecityButtonStyle}"
-                            Command="{Binding}" />
+                            Command="{Binding SpecityStcopAssetsPathCommand}" />
                 </Grid>
 
                 <Button Content="Launch"
-                        Style="{StaticResource LaunchButtonStyle}" />
+                        Style="{StaticResource LaunchButtonStyle}"
+                        Command="{Binding LaunchStcopEngineCommand}" />
             </StackPanel>
         </GroupBox>
 
@@ -104,7 +105,7 @@
                             Grid.Column="2"
                             Grid.Row="0"
                             Style="{StaticResource SpecityButtonStyle}"
-                            Command="{Binding}" />
+                            Command="{Binding SpecityStcsEnginePathCommand}" />
 
                     <Label Content="Path to assets:"
                            Grid.Column="0"
@@ -118,11 +119,12 @@
                             Grid.Column="2"
                             Grid.Row="1"
                             Style="{StaticResource SpecityButtonStyle}"
-                            Command="{Binding}" />
+                            Command="{Binding SpecityStcsAssetsPathCommand}" />
                 </Grid>
 
                 <Button Content="Launch"
-                        Style="{StaticResource LaunchButtonStyle}" />
+                        Style="{StaticResource LaunchButtonStyle}"
+                        Command="{Binding LaunchStcsEngineCommand}" />
             </StackPanel>
         </GroupBox>
 
@@ -153,7 +155,7 @@
                             Grid.Column="2"
                             Grid.Row="0"
                             Style="{StaticResource SpecityButtonStyle}"
-                            Command="{Binding}" />
+                            Command="{Binding SpecityStsocEnginePathCommand}" />
 
                     <Label Content="Path to assets:"
                            Grid.Column="0"
@@ -167,11 +169,12 @@
                             Grid.Column="2"
                             Grid.Row="1"
                             Style="{StaticResource SpecityButtonStyle}"
-                            Command="{Binding}" />
+                            Command="{Binding StsocAssetsPath}" />
                 </Grid>
 
                 <Button Content="Launch"
-                        Style="{StaticResource LaunchButtonStyle}" />
+                        Style="{StaticResource LaunchButtonStyle}"
+                        Command="{Binding LaunchStsocEngineCommand}" />
             </StackPanel>
         </GroupBox>
     </StackPanel>
