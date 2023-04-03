@@ -13,7 +13,7 @@
         <vm:CommonViewModel />
     </UserControl.DataContext>
 
-    <Grid>
+    <StackPanel Orientation="Vertical">
         <TextBox Text="{Binding Path=FilePath}"
                  AllowDrop="True">
             <b:Interaction.Triggers>
@@ -27,5 +27,152 @@
                 </b:EventTrigger>
             </b:Interaction.Triggers>
         </TextBox>
-    </Grid>
+
+        <GroupBox Header="Call of Pripyat"
+                  Margin="5">
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Path to engine:"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           Margin="5" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="0"
+                             Margin="5" />
+                    <Button Content="Specify"
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            Margin="5"
+                            Command="{Binding}" />
+
+                    <Label Content="Path to assets:"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           Margin="5" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="1"
+                             Margin="5" />
+                    <Button Content="Specify"
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            Margin="5"
+                            Command="{Binding}" />
+                </Grid>
+
+                <Button Content="Launch"
+                        Margin="5"
+                        Padding="5"
+                        HorizontalAlignment="Left" />
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="Clear Sky"
+                  Margin="5">
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Path to engine:"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           Margin="5" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="0"
+                             Margin="5" />
+                    <Button Content="Specify"
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            Margin="5"
+                            Command="{Binding}" />
+
+                    <Label Content="Path to assets:"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           Margin="5" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="1"
+                             Margin="5" />
+                    <Button Content="Specify"
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            Margin="5"
+                            Command="{Binding}" />
+                </Grid>
+
+                <Button Content="Launch"
+                        Margin="5"
+                        Padding="5"
+                        HorizontalAlignment="Left" />
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="Shadow of Chernobyl"
+                  Margin="5">
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Path to engine:"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           Margin="5" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="0"
+                             Margin="5" />
+                    <Button Content="Specify"
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            Margin="5"
+                            Command="{Binding}" />
+
+                    <Label Content="Path to assets:"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           Margin="5" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="1"
+                             Margin="5" />
+                    <Button Content="Specify"
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            Margin="5"
+                            Command="{Binding}" />
+                </Grid>
+
+                <Button Content="Launch"
+                        Margin="5"
+                        Padding="5"
+                        HorizontalAlignment="Left" />
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
 </UserControl>
