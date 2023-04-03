@@ -47,7 +47,8 @@
                            Grid.Column="0"
                            Grid.Row="0"
                            Style="{StaticResource GridLabelStyle}" />
-                    <TextBox Grid.Column="1"
+                    <TextBox Text="{Binding StcopEnginePath}"
+                             Grid.Column="1"
                              Grid.Row="0"
                              Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
@@ -60,7 +61,8 @@
                            Grid.Column="0"
                            Grid.Row="1"
                            Style="{StaticResource GridLabelStyle}" />
-                    <TextBox Grid.Column="1"
+                    <TextBox Text="{Binding StcopAssetsPath}"
+                             Grid.Column="1"
                              Grid.Row="1"
                              Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
@@ -94,7 +96,8 @@
                            Grid.Column="0"
                            Grid.Row="0"
                            Style="{StaticResource GridLabelStyle}" />
-                    <TextBox Grid.Column="1"
+                    <TextBox Text="{Binding StcsEnginePath}"
+                             Grid.Column="1"
                              Grid.Row="0"
                              Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
@@ -107,7 +110,8 @@
                            Grid.Column="0"
                            Grid.Row="1"
                            Style="{StaticResource GridLabelStyle}" />
-                    <TextBox Grid.Column="1"
+                    <TextBox Text="{Binding StcsAssetsPath}"
+                             Grid.Column="1"
                              Grid.Row="1"
                              Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
@@ -141,7 +145,8 @@
                            Grid.Column="0"
                            Grid.Row="0"
                            Style="{StaticResource GridLabelStyle}" />
-                    <TextBox Grid.Column="1"
+                    <TextBox Text="{Binding StsocEnginePath}"
+                             Grid.Column="1"
                              Grid.Row="0"
                              Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
@@ -154,7 +159,8 @@
                            Grid.Column="0"
                            Grid.Row="1"
                            Style="{StaticResource GridLabelStyle}" />
-                    <TextBox Grid.Column="1"
+                    <TextBox Text="{Binding StsocAssetsPath}"
+                             Grid.Column="1"
                              Grid.Row="1"
                              Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
