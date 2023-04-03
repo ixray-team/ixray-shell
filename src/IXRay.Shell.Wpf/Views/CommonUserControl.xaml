@@ -29,7 +29,7 @@
         </TextBox>
 
         <GroupBox Header="Call of Pripyat"
-                  Margin="5">
+                  Style="{StaticResource GroupBoxStyle}">
             <StackPanel Orientation="Vertical">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -46,39 +46,37 @@
                     <Label Content="Path to engine:"
                            Grid.Column="0"
                            Grid.Row="0"
-                           Margin="5" />
+                           Style="{StaticResource GridLabelStyle}" />
                     <TextBox Grid.Column="1"
                              Grid.Row="0"
-                             Margin="5" />
+                             Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="0"
-                            Margin="5"
+                            Style="{StaticResource SpecityButtonStyle}"
                             Command="{Binding}" />
 
                     <Label Content="Path to assets:"
                            Grid.Column="0"
                            Grid.Row="1"
-                           Margin="5" />
+                           Style="{StaticResource GridLabelStyle}" />
                     <TextBox Grid.Column="1"
                              Grid.Row="1"
-                             Margin="5" />
+                             Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="1"
-                            Margin="5"
+                            Style="{StaticResource SpecityButtonStyle}"
                             Command="{Binding}" />
                 </Grid>
 
                 <Button Content="Launch"
-                        Margin="5"
-                        Padding="5"
-                        HorizontalAlignment="Left" />
+                        Style="{StaticResource LaunchButtonStyle}" />
             </StackPanel>
         </GroupBox>
 
         <GroupBox Header="Clear Sky"
-                  Margin="5">
+                  Style="{StaticResource GroupBoxStyle}">
             <StackPanel Orientation="Vertical">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -95,39 +93,37 @@
                     <Label Content="Path to engine:"
                            Grid.Column="0"
                            Grid.Row="0"
-                           Margin="5" />
+                           Style="{StaticResource GridLabelStyle}" />
                     <TextBox Grid.Column="1"
                              Grid.Row="0"
-                             Margin="5" />
+                             Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="0"
-                            Margin="5"
+                            Style="{StaticResource SpecityButtonStyle}"
                             Command="{Binding}" />
 
                     <Label Content="Path to assets:"
                            Grid.Column="0"
                            Grid.Row="1"
-                           Margin="5" />
+                           Style="{StaticResource GridLabelStyle}" />
                     <TextBox Grid.Column="1"
                              Grid.Row="1"
-                             Margin="5" />
+                             Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="1"
-                            Margin="5"
+                            Style="{StaticResource SpecityButtonStyle}"
                             Command="{Binding}" />
                 </Grid>
 
                 <Button Content="Launch"
-                        Margin="5"
-                        Padding="5"
-                        HorizontalAlignment="Left" />
+                        Style="{StaticResource LaunchButtonStyle}" />
             </StackPanel>
         </GroupBox>
 
         <GroupBox Header="Shadow of Chernobyl"
-                  Margin="5">
+                  Style="{StaticResource GroupBoxStyle}">
             <StackPanel Orientation="Vertical">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -144,34 +140,32 @@
                     <Label Content="Path to engine:"
                            Grid.Column="0"
                            Grid.Row="0"
-                           Margin="5" />
+                           Style="{StaticResource GridLabelStyle}" />
                     <TextBox Grid.Column="1"
                              Grid.Row="0"
-                             Margin="5" />
+                             Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="0"
-                            Margin="5"
+                            Style="{StaticResource SpecityButtonStyle}"
                             Command="{Binding}" />
 
                     <Label Content="Path to assets:"
                            Grid.Column="0"
                            Grid.Row="1"
-                           Margin="5" />
+                           Style="{StaticResource GridLabelStyle}" />
                     <TextBox Grid.Column="1"
                              Grid.Row="1"
-                             Margin="5" />
+                             Style="{StaticResource GridTextBoxStyle}" />
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="1"
-                            Margin="5"
+                            Style="{StaticResource SpecityButtonStyle}"
                             Command="{Binding}" />
                 </Grid>
 
                 <Button Content="Launch"
-                        Margin="5"
-                        Padding="5"
-                        HorizontalAlignment="Left" />
+                        Style="{StaticResource LaunchButtonStyle}" />
             </StackPanel>
         </GroupBox>
     </StackPanel>
