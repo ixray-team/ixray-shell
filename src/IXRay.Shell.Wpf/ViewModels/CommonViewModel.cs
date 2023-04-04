@@ -105,7 +105,7 @@ public class CommonViewModel : ObservableObject {
         StcsEnginePath = GetExecutablePath($"X-Ray Engine|{XRayEngine}", StcsEnginePath);
 
     private void SpecityStcsAssetsPath() =>
-        StcsAssetsPath = GetFolderPath(StcopAssetsPath);
+        StcsAssetsPath = GetFolderPath(StcsAssetsPath);
 
     private void LaunchStcsEngine() =>
         Launch(StcsEnginePath, StcsAssetsPath);
@@ -114,7 +114,7 @@ public class CommonViewModel : ObservableObject {
         StsocEnginePath = GetExecutablePath($"X-Ray Engine|{XRay3DApp}", StsocEnginePath);
 
     private void SpecityStsocAssetsPath() =>
-        StsocAssetsPath = GetFolderPath(StcopAssetsPath);
+        StsocAssetsPath = GetFolderPath(StsocAssetsPath);
 
     private void LaunchStsocEngine() =>
         Launch(StsocEnginePath, StsocAssetsPath);
