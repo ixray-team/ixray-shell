@@ -1,4 +1,3 @@
-using System.IO;
 using System.Windows;
 
 using ImeSense.Helpers.Mvvm.ComponentModel;
@@ -6,6 +5,7 @@ using ImeSense.Helpers.Mvvm.Input;
 
 using IXRay.Shell.Wpf.Models;
 
+using static IXRay.Shell.Wpf.Models.Constants;
 using static IXRay.Shell.Wpf.Models.DragAndDrop;
 using static IXRay.Shell.Wpf.Models.Launcher;
 
@@ -75,25 +75,25 @@ public class CommonViewModel : ObservableObject {
     }
 
     private void DropStcopEngineHandler(DragEventArgs? e) =>
-        StcopEnginePath = DropFileHander(e, "xrEngine.exe");
+        StcopEnginePath = DropFileHander(e, XRayEngine);
 
     private void DropStcopAssetsHandler(DragEventArgs? e) =>
         StcopAssetsPath = DropFolderHander(e);
 
     private void DropStcsEngineHandler(DragEventArgs? e) =>
-        StcsEnginePath = DropFileHander(e, "xrEngine.exe");
+        StcsEnginePath = DropFileHander(e, XRayEngine);
 
     private void DropStcsAssetsHandler(DragEventArgs? e) =>
         StcsAssetsPath = DropFolderHander(e);
 
     private void DropStsocEngineHandler(DragEventArgs? e) =>
-        StsocEnginePath = DropFileHander(e, "XR_3DA.exe");
+        StsocEnginePath = DropFileHander(e, XRayEngine);
 
     private void DropStsocAssetsHandler(DragEventArgs? e) =>
         StsocAssetsPath = DropFolderHander(e);
 
     private void SpecityStcopEnginePath() =>
-        StcopEnginePath = GetExecutablePath("X-Ray Engine|xrEngine.exe", StcopEnginePath);
+        StcopEnginePath = GetExecutablePath($"X-Ray Engine|{XRayEngine}", StcopEnginePath);
 
     private void SpecityStcopAssetsPath() =>
         StcopAssetsPath = GetFolderPath(StcopAssetsPath);
@@ -102,7 +102,7 @@ public class CommonViewModel : ObservableObject {
         Launch(StcopEnginePath, StcopAssetsPath);
 
     private void SpecityStcsEnginePath() =>
-        StcsEnginePath = GetExecutablePath("X-Ray Engine|xrEngine.exe", StcsEnginePath);
+        StcsEnginePath = GetExecutablePath($"X-Ray Engine|{XRayEngine}", StcsEnginePath);
 
     private void SpecityStcsAssetsPath() =>
         StcsAssetsPath = GetFolderPath(StcopAssetsPath);
@@ -111,7 +111,7 @@ public class CommonViewModel : ObservableObject {
         Launch(StcsEnginePath, StcsAssetsPath);
 
     private void SpecityStsocEnginePath() =>
-        StsocEnginePath = GetExecutablePath("X-Ray Engine|XR_3DA.exe", StsocEnginePath);
+        StsocEnginePath = GetExecutablePath($"X-Ray Engine|{XRay3DApp}", StsocEnginePath);
 
     private void SpecityStsocAssetsPath() =>
         StsocAssetsPath = GetFolderPath(StcopAssetsPath);
