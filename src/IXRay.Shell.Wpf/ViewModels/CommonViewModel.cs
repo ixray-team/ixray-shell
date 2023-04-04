@@ -1,3 +1,4 @@
+using System.IO;
 using System.Windows;
 
 using ImeSense.Helpers.Mvvm.ComponentModel;
@@ -5,41 +6,24 @@ using ImeSense.Helpers.Mvvm.Input;
 
 using IXRay.Shell.Wpf.Models;
 
+using static IXRay.Shell.Wpf.Models.DragAndDrop;
+using static IXRay.Shell.Wpf.Models.Launcher;
+
 namespace IXRay.Shell.Wpf.ViewModels;
 
 public class CommonViewModel : ObservableObject {
-    private string? _filePath;
+    private readonly EngineInstances _instances;
 
     private IRelayCommand<object>? _previewDragOverCommand;
-    private IRelayCommand<object>? _dropCommand;
 
-    public string? FilePath {
-        get => _filePath;
-        set => SetProperty(ref _filePath, value);
-    }
+    private IRelayCommand<object>? _dropStcopEngineCommand;
+    private IRelayCommand<object>? _dropStcopAssetsCommand;
 
-    public IRelayCommand<object> PreviewDragOverCommand => _previewDragOverCommand ??= new RelayCommand<object>(
-        param => PreviewDragOverFile(param as DragEventArgs),
-        param => true);
+    private IRelayCommand<object>? _dropStcsEngineCommand;
+    private IRelayCommand<object>? _dropStcsAssetsCommand;
 
-    public IRelayCommand<object> DropCommand => _dropCommand ??= new RelayCommand<object>(
-        param => DropFile(param as DragEventArgs),
-        param => true);
-
-    private void PreviewDragOverFile(DragEventArgs? e) {
-        if (e != null) {
-            e.Handled = true;
-        }
-    }
-
-    private void DropFile(DragEventArgs? e) {
-        if (e!.Data.GetDataPresent(DataFormats.FileDrop)) {
-            var files = (string[]) e.Data.GetData(DataFormats.FileDrop);
-            FilePath = files[0];
-        }
-    }
-
-    private EngineInstances _instances;
+    private IRelayCommand<object>? _dropStsocEngineCommand;
+    private IRelayCommand<object>? _dropStsocAssetsCommand;
 
     private IRelayCommand? _specityStcopEnginePathCommand;
     private IRelayCommand? _specityStcopAssetsPathCommand;
@@ -90,32 +74,78 @@ public class CommonViewModel : ObservableObject {
             (i, p) => i.StsocAssetsPath = p);
     }
 
-    private void SpecityStcopEnginePath() {
-    }
+    private void DropStcopEngineHandler(DragEventArgs? e) =>
+        StcopEnginePath = DropFileHander(e, "xrEngine.exe");
 
-    private void SpecityStcopAssetsPath() {
-    }
+    private void DropStcopAssetsHandler(DragEventArgs? e) =>
+        StcopAssetsPath = DropFolderHander(e);
 
-    private void LaunchStcopEngine() {
-    }
+    private void DropStcsEngineHandler(DragEventArgs? e) =>
+        StcsEnginePath = DropFileHander(e, "xrEngine.exe");
 
-    private void SpecityStcsEnginePath() {
-    }
+    private void DropStcsAssetsHandler(DragEventArgs? e) =>
+        StcsAssetsPath = DropFolderHander(e);
 
-    private void SpecityStcsAssetsPath() {
-    }
+    private void DropStsocEngineHandler(DragEventArgs? e) =>
+        StsocEnginePath = DropFileHander(e, "XR_3DA.exe");
 
-    private void LaunchStcsEngine() {
-    }
+    private void DropStsocAssetsHandler(DragEventArgs? e) =>
+        StsocAssetsPath = DropFolderHander(e);
 
-    private void SpecityStsocEnginePath() {
-    }
+    private void SpecityStcopEnginePath() =>
+        StcopEnginePath = GetExecutablePath("X-Ray Engine|xrEngine.exe", StcopEnginePath);
 
-    private void SpecityStsocAssetsPath() {
-    }
+    private void SpecityStcopAssetsPath() =>
+        StcopAssetsPath = GetFolderPath(StcopAssetsPath);
 
-    private void LaunchStsocEngine() {
-    }
+    private void LaunchStcopEngine() =>
+        Launch(StcopEnginePath, StcopAssetsPath);
+
+    private void SpecityStcsEnginePath() =>
+        StcsEnginePath = GetExecutablePath("X-Ray Engine|xrEngine.exe", StcsEnginePath);
+
+    private void SpecityStcsAssetsPath() =>
+        StcsAssetsPath = GetFolderPath(StcopAssetsPath);
+
+    private void LaunchStcsEngine() =>
+        Launch(StcsEnginePath, StcsAssetsPath);
+
+    private void SpecityStsocEnginePath() =>
+        StsocEnginePath = GetExecutablePath("X-Ray Engine|XR_3DA.exe", StsocEnginePath);
+
+    private void SpecityStsocAssetsPath() =>
+        StsocAssetsPath = GetFolderPath(StcopAssetsPath);
+
+    private void LaunchStsocEngine() =>
+        Launch(StsocEnginePath, StsocAssetsPath);
+
+    public IRelayCommand<object> PreviewDragOverCommand => _previewDragOverCommand ??= new RelayCommand<object>(
+        e => PreviewDragOverHandler(e as DragEventArgs),
+        p => true);
+
+    public IRelayCommand<object> DropStcopEngineCommand => _dropStcopEngineCommand ??= new RelayCommand<object>(
+        e => DropStcopEngineHandler(e as DragEventArgs),
+        p => true);
+
+    public IRelayCommand<object> DropStcopAssetsCommand => _dropStcopAssetsCommand ??= new RelayCommand<object>(
+        e => DropStcopAssetsHandler(e as DragEventArgs),
+        p => true);
+
+    public IRelayCommand<object> DropStcsEngineCommand => _dropStcsEngineCommand ??= new RelayCommand<object>(
+        e => DropStcsEngineHandler(e as DragEventArgs),
+        p => true);
+
+    public IRelayCommand<object> DropStcsAssetsCommand => _dropStcsAssetsCommand ??= new RelayCommand<object>(
+        e => DropStcsAssetsHandler(e as DragEventArgs),
+        p => true);
+
+    public IRelayCommand<object> DropStsocEngineCommand => _dropStsocEngineCommand ??= new RelayCommand<object>(
+        e => DropStsocEngineHandler(e as DragEventArgs),
+        p => true);
+
+    public IRelayCommand<object> DropStsocAssetsCommand => _dropStsocAssetsCommand ??= new RelayCommand<object>(
+        e => DropStsocAssetsHandler(e as DragEventArgs),
+        p => true);
 
     public IRelayCommand SpecityStcopEnginePathCommand =>
         _specityStcopEnginePathCommand ??= new RelayCommand(SpecityStcopEnginePath);

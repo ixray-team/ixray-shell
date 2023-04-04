@@ -14,20 +14,6 @@
     </UserControl.DataContext>
 
     <StackPanel Orientation="Vertical">
-        <TextBox Text="{Binding Path=FilePath}"
-                 AllowDrop="True">
-            <b:Interaction.Triggers>
-                <b:EventTrigger EventName="PreviewDragOver">
-                    <b:InvokeCommandAction Command="{Binding PreviewDragOverCommand}"
-                                           PassEventArgsToCommand="True" />
-                </b:EventTrigger>
-                <b:EventTrigger EventName="Drop">
-                    <b:InvokeCommandAction Command="{Binding DropCommand}"
-                                           PassEventArgsToCommand="True" />
-                </b:EventTrigger>
-            </b:Interaction.Triggers>
-        </TextBox>
-
         <GroupBox Header="Call of Pripyat"
                   Style="{StaticResource GroupBoxStyle}">
             <StackPanel Orientation="Vertical">
@@ -50,7 +36,18 @@
                     <TextBox Text="{Binding StcopEnginePath}"
                              Grid.Column="1"
                              Grid.Row="0"
-                             Style="{StaticResource GridTextBoxStyle}" />
+                             Style="{StaticResource GridTextBoxStyle}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="PreviewDragOver">
+                                <b:InvokeCommandAction Command="{Binding PreviewDragOverCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                            <b:EventTrigger EventName="Drop">
+                                <b:InvokeCommandAction Command="{Binding DropStcopEngineCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </TextBox>
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="0"
@@ -64,7 +61,18 @@
                     <TextBox Text="{Binding StcopAssetsPath}"
                              Grid.Column="1"
                              Grid.Row="1"
-                             Style="{StaticResource GridTextBoxStyle}" />
+                             Style="{StaticResource GridTextBoxStyle}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="PreviewDragOver">
+                                <b:InvokeCommandAction Command="{Binding PreviewDragOverCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                            <b:EventTrigger EventName="Drop">
+                                <b:InvokeCommandAction Command="{Binding DropStcopAssetsCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </TextBox>
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="1"
@@ -100,7 +108,18 @@
                     <TextBox Text="{Binding StcsEnginePath}"
                              Grid.Column="1"
                              Grid.Row="0"
-                             Style="{StaticResource GridTextBoxStyle}" />
+                             Style="{StaticResource GridTextBoxStyle}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="PreviewDragOver">
+                                <b:InvokeCommandAction Command="{Binding PreviewDragOverCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                            <b:EventTrigger EventName="Drop">
+                                <b:InvokeCommandAction Command="{Binding DropStcsEngineCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </TextBox>
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="0"
@@ -114,7 +133,18 @@
                     <TextBox Text="{Binding StcsAssetsPath}"
                              Grid.Column="1"
                              Grid.Row="1"
-                             Style="{StaticResource GridTextBoxStyle}" />
+                             Style="{StaticResource GridTextBoxStyle}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="PreviewDragOver">
+                                <b:InvokeCommandAction Command="{Binding PreviewDragOverCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                            <b:EventTrigger EventName="Drop">
+                                <b:InvokeCommandAction Command="{Binding DropStcsAssetsCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </TextBox>
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="1"
@@ -150,7 +180,18 @@
                     <TextBox Text="{Binding StsocEnginePath}"
                              Grid.Column="1"
                              Grid.Row="0"
-                             Style="{StaticResource GridTextBoxStyle}" />
+                             Style="{StaticResource GridTextBoxStyle}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="PreviewDragOver">
+                                <b:InvokeCommandAction Command="{Binding PreviewDragOverCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                            <b:EventTrigger EventName="Drop">
+                                <b:InvokeCommandAction Command="{Binding DropStsocEngineCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </TextBox>
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="0"
@@ -164,7 +205,18 @@
                     <TextBox Text="{Binding StsocAssetsPath}"
                              Grid.Column="1"
                              Grid.Row="1"
-                             Style="{StaticResource GridTextBoxStyle}" />
+                             Style="{StaticResource GridTextBoxStyle}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="PreviewDragOver">
+                                <b:InvokeCommandAction Command="{Binding PreviewDragOverCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                            <b:EventTrigger EventName="Drop">
+                                <b:InvokeCommandAction Command="{Binding DropStsocAssetsCommand}"
+                                                       PassEventArgsToCommand="True" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </TextBox>
                     <Button Content="Specify"
                             Grid.Column="2"
                             Grid.Row="1"
