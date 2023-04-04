@@ -224,9 +224,15 @@
                             Command="{Binding StsocAssetsPath}" />
                 </Grid>
 
-                <Button Content="Launch"
-                        Style="{StaticResource LaunchButtonStyle}"
-                        Command="{Binding LaunchStsocEngineCommand}" />
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Launch"
+                            Style="{StaticResource LaunchButtonStyle}"
+                            Command="{Binding LaunchStsocEngineCommand}" />
+
+                    <Button Content="Remember"
+                            Style="{StaticResource LaunchButtonStyle}"
+                            Command="{Binding RememberPathsCommand}" />
+                </StackPanel>
             </StackPanel>
         </GroupBox>
     </StackPanel>

@@ -1,3 +1,5 @@
+using System.IO;
+using System.Text.Json;
 using System.Windows;
 
 using ImeSense.Helpers.Mvvm.ComponentModel;
@@ -12,7 +14,12 @@ using static IXRay.Shell.Wpf.Models.Launcher;
 namespace IXRay.Shell.Wpf.ViewModels;
 
 public class CommonViewModel : ObservableObject {
-    private readonly EngineInstances _instances;
+    private readonly EngineInstances _instances = new();
+
+    private readonly string _configPath =
+        Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) +
+        @"\.imesense\ixray-shell" +
+        @"\engine-paths.json";
 
     private IRelayCommand<object>? _previewDragOverCommand;
 
@@ -37,8 +44,13 @@ public class CommonViewModel : ObservableObject {
     private IRelayCommand? _specityStsocAssetsPathCommand;
     private IRelayCommand? _launchStsocEngineCommand;
 
+    private IRelayCommand? _rememberPathsCommand;
+
     public CommonViewModel() {
-        _instances = new EngineInstances();
+        if (File.Exists(_configPath)) {
+            var json = File.ReadAllText(_configPath);
+            _instances = JsonSerializer.Deserialize<EngineInstances>(json)!;
+        }
     }
 
     public string? StcopEnginePath {
@@ -147,6 +159,20 @@ public class CommonViewModel : ObservableObject {
         e => DropStsocAssetsHandler(e as DragEventArgs),
         p => true);
 
+    private void RememberPaths() {
+        var options = new JsonSerializerOptions {
+            WriteIndented = true,
+        };
+        var json = JsonSerializer.Serialize(_instances, options);
+        if (!Directory.Exists(Path.GetDirectoryName(_configPath))) {
+            Directory.CreateDirectory(Path.GetDirectoryName(_configPath)!);
+        }
+        if (!File.Exists(_configPath)) {
+            File.Create(_configPath).Close();
+        }
+        File.WriteAllText(_configPath, json);
+    }
+
     public IRelayCommand SpecityStcopEnginePathCommand =>
         _specityStcopEnginePathCommand ??= new RelayCommand(SpecityStcopEnginePath);
     public IRelayCommand SpecityStcopAssetsPathCommand =>
@@ -167,4 +193,7 @@ public class CommonViewModel : ObservableObject {
         _specityStsocAssetsPathCommand ??= new RelayCommand(SpecityStsocAssetsPath);
     public IRelayCommand LaunchStsocEngineCommand =>
         _launchStsocEngineCommand ??= new RelayCommand(LaunchStsocEngine);
+
+    public IRelayCommand RememberPathsCommand =>
+        _rememberPathsCommand ??= new RelayCommand(RememberPaths);
 }
