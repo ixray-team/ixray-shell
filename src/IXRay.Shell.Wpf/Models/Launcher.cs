@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.IO;
 
 using Microsoft.Win32;
 
@@ -30,6 +31,9 @@ public static class Launcher {
     public static void Launch(string? path, string? workingDirectory = null,
         IList<string> arguments = null!) {
         if (string.IsNullOrEmpty(path)) {
+            return;
+        }
+        if (!(File.Exists(path) && Path.GetExtension(path) != "exe")) {
             return;
         }
 
